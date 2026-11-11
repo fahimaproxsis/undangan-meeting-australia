@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Meeting dengan Perusahaan Australia — Proxsis</title>
+<!-- ============================================================
+     UNDANGAN: MEETING DENGAN PERUSAHAAN AUSTRALIA
+     Cara edit cepat:
+     1) Blok EVENT di <script> bawah: tanggal, jam, dan LINK ZOOM
+        (sekarang masih placeholder - ganti sebelum disebar).
+     2) Tombol "Download Materi" menunjuk file
+        proxsis-company-profile.pptx di folder yang sama dengan file ini.
+        Letakkan file PPTX aslinya di folder yang sama saat deploy.
+     3) Sapaan tamu: "Dear Leader Proxsis AI" (ubah di kartu pass di bawah).
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #070913;
+    --card-bg: rgba(15, 23, 42, 0.75);
+    --card-border: rgba(148, 163, 184, 0.15);
+    --gold: #f59e0b;
+    --indigo: #6366f1;
+    --cyan: #38bdf8;
+    --emerald: #10b981;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  .glow-1, .glow-2 {
+    position: fixed; border-radius: 50%;
+    filter: blur(100px); pointer-events: none; z-index: 0;
+  }
+  .glow-1 { top: -150px; right: -100px; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(139,92,246,0.1) 45%, transparent 70%); }
+  .glow-2 { bottom: -150px; left: -100px; width: 750px; height: 750px;
+    background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, rgba(245,158,11,0.08) 50%, transparent 75%); }
+  .cyber-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(148,163,184,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    padding: 14px 28px;
+    background: rgba(7,9,19,0.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-logo {
+    width: 38px; height: 38px; border-radius: 11px;
+    background: linear-gradient(135deg, var(--cyan), var(--indigo));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: #fff;
+  }
+  .brand-name { font-weight: 800; font-size: 17px; letter-spacing: 0.04em; }
+  .brand-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 0.18em; }
+  .badge-open {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--cyan); border: 1px solid rgba(56,189,248,0.4);
+    padding: 6px 14px; border-radius: 999px; letter-spacing: 0.08em;
+  }
+
+  main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 44px 20px 80px; }
+
+  .hero { text-align: center; margin-bottom: 46px; }
+  .hero-kicker {
+    display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--cyan); border: 1px solid rgba(56,189,248,0.35);
+    padding: 7px 16px; border-radius: 999px; letter-spacing: 0.14em; margin-bottom: 22px;
+  }
+  h1 { font-size: clamp(30px, 5.4vw, 52px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+  h1 .accent { color: var(--cyan); }
+  .hero-sub { color: var(--text-muted); max-width: 620px; margin: 0 auto 30px; font-size: 15px; }
+  .hero-sub strong { color: var(--text-main); }
+
+  .countdown-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 14px;
+  }
+  .countdown { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+  .cd-box {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 16px 20px; min-width: 88px;
+  }
+  .cd-num { font-family: 'JetBrains Mono', monospace; font-size: 34px; font-weight: 700; }
+  .cd-unit { font-size: 10px; color: var(--text-muted); letter-spacing: 0.2em; }
+
+  .pass-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 20px; padding: 30px; margin-bottom: 44px;
+    position: relative; overflow: hidden;
+  }
+  .pass-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--indigo), var(--cyan), var(--emerald));
+  }
+  .pass-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 0.22em; margin-bottom: 10px; }
+  .recipient-name { font-size: 26px; font-weight: 800; }
+  .recipient-title { color: var(--text-muted); margin-bottom: 22px; }
+  .pass-badge {
+    position: absolute; top: 26px; right: 26px; text-align: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--cyan);
+    border: 1px dashed rgba(56,189,248,0.5); border-radius: 10px; padding: 10px 12px;
+  }
+  .pass-badge strong { display: block; font-size: 12px; }
+  @media (max-width: 640px) {
+    .pass-badge { position: static; display: inline-block; margin: 0 0 14px; }
+  }
+  .pass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+  .pass-cell {
+    background: rgba(7,9,19,0.5); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 14px 16px;
+  }
+  .pass-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.16em; margin-bottom: 6px; }
+  .pass-cell-value { font-weight: 700; font-size: 14px; }
+  .pass-cell-sub { font-size: 12px; color: var(--cyan); }
+
+  .zoom-card {
+    background: rgba(99,102,241,0.10); border: 1px solid rgba(99,102,241,0.35);
+    border-radius: 16px; padding: 22px; margin-top: 16px;
+  }
+  .zoom-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .zoom-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--cyan), var(--indigo));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zoom-head h4 { font-size: 17px; }
+  .zoom-head p { color: var(--text-muted); font-size: 13px; }
+  .btn-join {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, #2563eb, var(--indigo)); color: #fff;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 13px 26px; border-radius: 12px;
+  }
+  .zoom-note { margin-top: 12px; font-size: 12px; color: var(--text-muted); }
+
+  .materi-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 20px; padding: 30px; margin-bottom: 44px;
+  }
+  .materi-card h3 { font-size: 20px; margin-bottom: 6px; }
+  .materi-card > p { color: var(--text-muted); font-size: 13px; margin-bottom: 20px; }
+  .materi-file {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    background: rgba(7,9,19,0.5); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 18px 20px;
+  }
+  .materi-info { display: flex; align-items: center; gap: 14px; }
+  .materi-icon {
+    width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #fff;
+  }
+  .materi-name { font-weight: 700; font-size: 15px; }
+  .materi-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); }
+  .btn-download {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--emerald), #059669); color: #fff;
+    text-decoration: none; font-weight: 700; font-size: 14px;
+    padding: 12px 22px; border-radius: 12px; white-space: nowrap;
+  }
+
+  footer {
+    text-align: center; color: var(--text-muted); font-size: 12px;
+    border-top: 1px solid var(--card-border); padding: 26px 20px; position: relative; z-index: 1;
+  }
+</style>
+</head>
+<body>
+<div class="glow-1"></div>
+<div class="glow-2"></div>
+<div class="cyber-grid"></div>
+
+<header>
+  <div class="brand">
+    <div class="brand-logo">P</div>
+    <div>
+      <div class="brand-name">PROXSIS</div>
+      <div class="brand-sub">21 YEARS OF MISSION</div>
+    </div>
+  </div>
+  <div class="badge-open">● BUSINESS MEETING • PARTNERSHIP DISCUSSION</div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="hero-kicker">★ UNDANGAN MEETING RESMI</div>
+    <h1>Meeting dengan<br><span class="accent">Perusahaan Australia</span></h1>
+    <p class="hero-sub">
+      Mengundang <strong>Leader Proxsis AI</strong> untuk hadir dalam sesi meeting bersama
+      perusahaan partner dari Australia, membahas peluang kolaborasi dan mempresentasikan
+      company profile <strong>Proxsis Group</strong>.
+    </p>
+
+    <div class="countdown-label">COUNTDOWN MENUJU MEETING: JUMAT, 27 NOV 2026 • 10:00 WIB</div>
+    <div class="countdown">
+      <div class="cd-box"><div class="cd-num" id="cdDays">00</div><div class="cd-unit">HARI</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdHours">00</div><div class="cd-unit">JAM</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdMinutes">00</div><div class="cd-unit">MENIT</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdSeconds">00</div><div class="cd-unit">DETIK</div></div>
+    </div>
+  </div>
+
+  <div class="pass-card">
+    <div class="pass-label">DIGITAL INVITATION PASS</div>
+    <div class="pass-badge">PASS ID: PX-MEETING<br><strong>INVITED GUEST</strong></div>
+    <div class="recipient-name">Dear Leader Proxsis AI</div>
+    <div class="recipient-title">Undangan Resmi Meeting Proxsis Group</div>
+    <div class="pass-grid">
+      <div class="pass-cell">
+        <div class="pass-cell-label">HARI &amp; TANGGAL</div>
+        <div class="pass-cell-value">Jumat, 27 Nov 2026</div>
+        <div class="pass-cell-sub">Pukul 10.00 WIB</div>
+      </div>
+      <div class="pass-cell">
+        <div class="pass-cell-label">MEDIA &amp; FORMAT</div>
+        <div class="pass-cell-value">Zoom Virtual Meeting</div>
+        <div class="pass-cell-sub">Online Discussion</div>
+      </div>
+      <div class="pass-cell">
+        <div class="pass-cell-label">MATERI</div>
+        <div class="pass-cell-value">Company Profile</div>
+        <div class="pass-cell-sub">Proxsis Group</div>
+      </div>
+    </div>
+
+    <div class="zoom-card">
+      <div class="zoom-head">
+        <div class="zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+          </svg>
+        </div>
+        <div>
+          <h4>Ruang Zoom Meeting</h4>
+          <p>Link Zoom akan dibagikan di halaman ini</p>
+        </div>
+      </div>
+      <a href="#" id="zoomLink" class="btn-join">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span>Masuk Zoom Meeting</span>
+      </a>
+      <div class="zoom-note">* Tombol akan aktif setelah link Zoom tersedia.</div>
+    </div>
+  </div>
+
+  <div class="materi-card">
+    <h3>Materi Meeting</h3>
+    <p>Silakan unduh company profile Proxsis Group sebagai bahan diskusi.</p>
+    <div class="materi-file">
+      <div class="materi-info">
+        <div class="materi-icon">PPTX</div>
+        <div>
+          <div class="materi-name">21 Years of Mission: Growing Others, Growing Together</div>
+          <div class="materi-meta">proxsis-company-profile.pptx • Company Profile Proxsis Group</div>
+        </div>
+      </div>
+      <a href="proxsis-company-profile.pptx" download class="btn-download">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Download Materi</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <strong>Proxsis Group</strong> • Undangan Meeting dengan Perusahaan Australia<br>
+    21 Years of Mission: Growing Others, Growing Together
+  </footer>
+</main>
+
+<script>
+  // ===== KONFIGURASI ACARA (EDIT DI SINI) =====
+  const EVENT = {
+    tanggalISO: "2026-11-27T10:00:00+07:00", // countdown target: Jumat 27 Nov 2026, 10.00 WIB
+    zoomUrl: "GANTI-DENGAN-LINK-ZOOM" // <-- ganti dengan link Zoom asli, contoh: "https://zoom.us/j/123456789?pwd=XXXX"
+  };
+
+  // ===== COUNTDOWN =====
+  function updateCountdown() {
+    const diff = new Date(EVENT.tanggalISO).getTime() - Date.now();
+    const el = id => document.getElementById(id);
+    if (diff <= 0) { ["cdDays","cdHours","cdMinutes","cdSeconds"].forEach(i => el(i).innerText = "00"); return; }
+    el("cdDays").innerText    = String(Math.floor(diff / 86400000)).padStart(2, "0");
+    el("cdHours").innerText   = String(Math.floor(diff / 3600000) % 24).padStart(2, "0");
+    el("cdMinutes").innerText = String(Math.floor(diff / 60000) % 60).padStart(2, "0");
+    el("cdSeconds").innerText = String(Math.floor(diff / 1000) % 60).padStart(2, "0");
+  }
+  setInterval(updateCountdown, 1000); updateCountdown();
+
+  // ===== LINK ZOOM (aktif setelah EVENT.zoomUrl diisi) =====
+  if (EVENT.zoomUrl && EVENT.zoomUrl.startsWith("http")) {
+    document.getElementById("zoomLink").href = EVENT.zoomUrl;
+    document.getElementById("zoomLink").target = "_blank";
+  } else {
+    document.getElementById("zoomLink").addEventListener("click", function (e) {
+      e.preventDefault();
+      alert("Link Zoom belum tersedia. Silakan cek kembali mendekati jadwal meeting.");
+    });
+  }
+</script>
+</body>
+</html>
